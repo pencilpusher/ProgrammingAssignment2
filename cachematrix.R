@@ -1,11 +1,17 @@
 ## The following functions provide a cache-able inverse of a 
 ## matrix (assuming that matrix is square and invertible).
 
+##
 ## Creates an ehanced matrix object that has the ability to 
 ## cache its inverse.
+##
 ## It will store the inverse on a call to setinverse and will
 ## clear that inverse value when set is called to update the
 ## matrix.
+##
+## Adapted from the makeVector example in the assignment 
+## instructions.
+##
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -20,12 +26,19 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
+##
 ## Calculates the inverse of an enhanced matrix returned by 
 ## calling the makeCacheMatrix. 
+##
 ## The calculated inverse is returned on the first call to 
 ## this function, or the first call after the matrix has been 
 ## updated. 
+##
 ## Subsequent calls will returned the cached inverse value.
+## 
+## Adapted from the cachemean example in the assignment 
+## instructions.
+##
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   inv <- x$getinverse()
